@@ -1,8 +1,5 @@
 pipeline {
   agent any
-  triggers {
-   cron('H/15 * * * *')
-  }
   stages {
     stage('echo') {
       steps {
@@ -10,5 +7,14 @@ pipeline {
       }
     }
 
+    stage('deploy') {
+      steps {
+        echo 'deploy to prod'
+      }
+    }
+
+  }
+  triggers {
+    cron('H/15 * * * *')
   }
 }
